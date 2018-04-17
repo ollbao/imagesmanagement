@@ -20,6 +20,7 @@ class CreateAdminsTable extends Migration
             $table->string('face')->nullable()->comment('头像');
             $table->string('password');
             $table->rememberToken();
+            $table->tinyInteger('is_super')->default(0)->comment('是否是超级管理员:0-不是 1-是');
             $table->timestamps();
         });
     }

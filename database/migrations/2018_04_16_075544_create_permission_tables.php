@@ -17,15 +17,23 @@ class CreatePermissionTables extends Migration
 
         Schema::create($tableNames['permissions'], function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('guard_name');
+            $table->integer('pid')->unsigned()->default(0)->comment('父id');
+            $table->string('name', '64')->comment('名称');
+            $table->string('param', '64')->nullable()->comment('参数');
+            $table->string('title', '64')->nullable()->comment('标题');
+            $table->string('icon', '64')->nullable()->comment('图标');
+            $table->integer('sort')->unsigned()->default(0)->comment('排序');
+            $table->tinyInteger('is_menu')->default(0)->comment('是否是菜单');
+            $table->string('guard_name', '32')->comment('守卫名称');
             $table->timestamps();
         });
 
         Schema::create($tableNames['roles'], function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('guard_name');
+            $table->string('name', '64')->comment('名称');
+            $table->string('title', '64')->nullable()->comment('标题');
+            $table->string('remark')->nullable()->comment('备注');
+            $table->string('guard_name', '32')->comment('守卫名称');
             $table->timestamps();
         });
 

@@ -11,6 +11,8 @@ cp .env.example .env
 php artisan key:generate
 //生成类导航文件(用于编辑器代码跳转)
 php artisan ide-helper:generate
+//生成数据迁移
+php artisan migrate:fresh --seed
 ```
 
 

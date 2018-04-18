@@ -17,7 +17,6 @@ class AdminsTableSeeder extends Seeder
         $user = Admin::find(1);
         $user->username = 'admin';
         $user->nickname = '超级管理员';
-        $user->password = bcrypt('admin');
         $user->is_super = 1;
         $user->save();
     }

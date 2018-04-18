@@ -31,6 +31,6 @@ $factory->define(Admin::class, function (Faker $faker) {
         'username' => $faker->unique()->safeEmail,
         'nickname' => '管理员',
         'face' => $avatars[mt_rand(0, 5)],
-        'password' => $password ?: $password = bcrypt('1234')
+        'password' => $password ?: $password = bcrypt('123456')
     ];
 });

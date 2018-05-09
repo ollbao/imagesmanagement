@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="/backend/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/backend/css/style.css" media="all">
+    <link rel="stylesheet" href="/static/admin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/admin/css/style.css" media="all">
 </head>
 
 <body>
@@ -58,10 +58,10 @@
         <p><span>Copyright©2014-2017 by 北京天华新瑞科技有限公司</span></p>
     </div>
     
-    <script src="/backend/layui/layui.js"></script>
+    <script src="/static/admin/layui/layui.js"></script>
     <script type="text/javascript">
     layui.config({
-        base: '/backend/js/'
+        base: '/static/admin/js/'
     }).use(['jquery', 'lea'], function(){
         var $ = layui.$;
         $('#vercode').click(function() {

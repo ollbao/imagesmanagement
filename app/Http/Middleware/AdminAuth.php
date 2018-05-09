@@ -5,23 +5,11 @@ namespace App\Http\Middleware;
 use App\Library\Y;
 use Closure;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Contracts\Auth\Factory as Auth;
+use Illuminate\Support\Facades\Auth;
 
 
 class AdminAuth
 {
-
-    /**
-     * auth
-     * @var
-     */
-    protected $auth;
-
-    public function __construct(Auth $auth)
-    {
-        $this->auth = $auth;
-    }
-
     /**
      * andle an incoming request.
      * @param $request
@@ -31,7 +19,7 @@ class AdminAuth
      */
     public function handle($request, Closure $next, $guard)
     {
-        $this->auth->shouldUse($guard);
+        Auth::shouldUse($guard);
 
         //无需验证的，直接过
         if ($request->is(...$this->except)) {
@@ -39,7 +27,7 @@ class AdminAuth
         }
 
         //未登录的，登录
-        if (!$this->auth->check()) {
+        if (!Auth::check()) {
             if ($request->isMethod('ajax')) {
                 return Y::error('登录已过期，请重新登录');
             } else {
@@ -48,7 +36,7 @@ class AdminAuth
         }
 
         //检查权限
-        if (!($this->auth->user()->hasRole('super admin') || $this->auth->user()->can(Route::currentRouteName()))) {
+        if (!(Auth::user()->isSuper() || Auth::user()->can(Route::currentRouteName()))) {
             if ($request->isMethod('ajax')) {
                 return Y::error('登录已过期，请重新登录');
             } else {

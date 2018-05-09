@@ -3,7 +3,7 @@
     <form class="layui-form inline-form">
         <div class="pull-left">
             <div class="layui-inline">
-                <button class="layui-btn layui-btn-normal layui-btn-sm ajax-form" data-url="/backend/rbac/permission/add" title="添加权限"><i class="layui-icon">&#xe61f;</i> 添加权限</button>
+                <button class="layui-btn layui-btn-normal layui-btn-sm ajax-form" data-url="/static/admin/rbac/permission/add" title="添加权限"><i class="layui-icon">&#xe61f;</i> 添加权限</button>
             </div>
         </div>
     </form>

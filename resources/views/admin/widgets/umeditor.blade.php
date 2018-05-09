@@ -8,13 +8,13 @@
     @endphp
     @if($resource)
         <!-- 样式文件 -->
-        <link rel="stylesheet" href="/backend/plugins/umeditor/themes/default/css/umeditor.css">
+        <link rel="stylesheet" href="/static/admin/plugins/umeditor/themes/default/css/umeditor.css">
         <!-- 配置文件 -->
-        <script type="text/javascript" src="/backend/plugins/umeditor/umeditor.config.js"></script>
+        <script type="text/javascript" src="/static/admin/plugins/umeditor/umeditor.config.js"></script>
         <!-- 编辑器源码文件 -->
-        <script type="text/javascript" src="/backend/plugins/umeditor/umeditor.js"></script>
+        <script type="text/javascript" src="/static/admin/plugins/umeditor/umeditor.js"></script>
         <!-- 语言包文件 -->
-        <script type="text/javascript" src="/backend/plugins/umeditor/lang/zh-cn/zh-cn.js"></script>
+        <script type="text/javascript" src="/static/admin/plugins/umeditor/lang/zh-cn/zh-cn.js"></script>
     @endif
     <script id="{{$id}}" name="{{$field}}" style="width:{{$width}};height:{{$height}};" type="text/plain">{!! $value !!}</script>
     <script type="text/javascript">

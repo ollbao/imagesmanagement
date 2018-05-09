@@ -50,7 +50,7 @@ class Admin extends Authenticatable
 
         $rules = cache('sys:rule:' . $this->id);
         if (empty($rules)) {
-            if ($this->hasRole('super admin')) {
+            if ($this->isSuper()) {
                 $rules = Permission::all()->toArray();
             } else {
                 $rules = [];
@@ -90,5 +90,9 @@ class Admin extends Authenticatable
             }
         }
         return compact('self', 'menu', 'crumb', 'parent_ids');
+    }
+
+    public function isSuper(){
+        return $this->is_super ? true : false;
     }
 }

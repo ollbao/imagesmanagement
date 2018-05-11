@@ -4,8 +4,8 @@ table .html {
     padding-right: 4px;
 }
 </style>
-<table class="layui-table  text-center" lay-size="sm">
-    <tbody>
+<table class="layui-table" lay-size="sm">
+    <thead>
         <tr>
             <th style="width: 48px">#</th>
             <th>
@@ -19,6 +19,8 @@ table .html {
             <th style="width: 80px">排序</th>
             <th>操作</th>
         </tr>
+    </thead>
+    <tbody>
         @foreach ($record as $vo)
         <tr>
             <td>{{ $loop->iteration }}</td>
@@ -39,6 +41,6 @@ table .html {
                 <a href="{{ route('delete-permission',['id'=>$vo['id']]) }}" title="删除" confirm="1" class="layui-btn layui-btn-xs layui-btn-danger  ajax-get">删除</a>
             </td>
         </tr>
-        @endforeach
+    @endforeach
     </tbody>
 </table>

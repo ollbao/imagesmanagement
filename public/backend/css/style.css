@@ -554,3 +554,7 @@ body {
     right: 15px;
     
 }
+
+.layui-input-sm {
+    height: 30px;
+}

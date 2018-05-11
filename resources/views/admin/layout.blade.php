@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="/static/admin/layui/css/layui.css">
-    <link rel="stylesheet" href="/static/admin/plugins/fontawesome-free-5.0.9/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="/static/admin/css/style.css">
-    <link rel="stylesheet" href="/static/admin/css/nprogress.css">
+    <link rel="stylesheet" href="/backend/layui/css/layui.css">
+    <link rel="stylesheet" href="/backend/plugins/fontawesome-free-5.0.9/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/backend/css/style.css">
+    <link rel="stylesheet" href="/backend/css/nprogress.css">
     @yield('style')
 </head>
 
@@ -102,6 +102,10 @@
                 <div class="layui-card">
                     <div class="layui-card-header">
                         <i class="{{ $__NAV__['self']['icon'] }} fa-fw"></i> {{ $__NAV__['self']['title'] }}
+                        <!-- 放置操作按钮 -->
+                        <div class="pull-right">
+                            @yield('action-btn')
+                        </div>
                     </div>
                     <div class="layui-card-body">
                         @yield('content')
@@ -115,12 +119,12 @@
         </div>
     </div>
 </div>
-<script src="/static/admin/js/jquery.min.js"></script>
-<script src="/static/admin/js/nprogress.js"></script>
-<script type="text/javascript" src="/static/admin/layui/layui.js"></script>
+<script src="/backend/js/jquery.min.js"></script>
+<script src="/backend/js/nprogress.js"></script>
+<script type="text/javascript" src="/backend/layui/layui.js"></script>
 <script type="text/javascript">
     layui.config({
-        base: '/static/admin/js/'
+        base: '/backend/js/'
     }).use('lea');
 </script>
 @yield('script')

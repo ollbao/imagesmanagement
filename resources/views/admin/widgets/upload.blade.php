@@ -23,9 +23,9 @@
 	@endphp
     @if($resource)
         <!--引入CSS-->
-        <link rel="stylesheet" type="text/css" href="/static/admin/plugins/webuploader/webuploader.css">
+        <link rel="stylesheet" type="text/css" href="/backend/plugins/webuploader/webuploader.css">
         <!--引入JS-->
-        <script type="text/javascript" src="/static/admin/plugins/webuploader/webuploader.html5only.min.js"></script>
+        <script type="text/javascript" src="/backend/plugins/webuploader/webuploader.html5only.min.js"></script>
     @endif
     <div class="wu-example">
         <div id="filePicker-{{$time}}"><i class="fa fa-cloud-upload"></i>

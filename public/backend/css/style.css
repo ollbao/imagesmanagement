@@ -1,18 +1,18 @@
 ::-webkit-scrollbar-track {
     border-radius: 12px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 12px;
-    -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1);
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1);
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 12px;
-    -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1);
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1);
 }
 
 ::-webkit-scrollbar {
@@ -557,4 +557,11 @@ body {
 
 .layui-input-sm {
     height: 30px;
+}
+.layui-input-xs {
+    height: 22px;
+}
+
+.action-btn{
+    float: right;
 }

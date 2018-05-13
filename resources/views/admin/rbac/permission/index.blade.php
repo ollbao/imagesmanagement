@@ -1,10 +1,8 @@
 @extends('admin.layout') 
 @section('action-btn')
-<div class="layui-inline">
-    <button class="layui-btn layui-btn-normal layui-btn-sm ajax-form" data-url="{{route('add-permission')}}" title="添加权限">
-        <i class="layui-icon">&#xe61f;</i> 添加权限
-    </button>
-</div>
+<button class="layui-btn layui-btn-normal layui-btn-sm ajax-form" data-url="{{route('add-permission')}}" title="添加权限">
+    <i class="layui-icon">&#xe61f;</i> 添加权限
+</button>
 @endsection
 
 @section('content')

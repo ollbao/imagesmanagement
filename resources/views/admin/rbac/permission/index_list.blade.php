@@ -33,7 +33,7 @@ table .html {
             <td><i class="{{ $vo['icon'] }}"></i></td>
             <td><a href="{{ route('menu-permission',['is_menu'=>abs(1-$vo['is_menu']),'id'=>$vo['id']]) }}" class="ajax-get" msg="0">@if($vo['is_menu'])<span class="text-red">是</span>@else<span>否</span>@endif</a></td>
             <td>
-                <input type="number" name="sort" data-url="{{ route('sort-permission',['id'=>$vo['id']]) }}" class="layui-input layui-input-sm input-sort" value="{{$vo['sort']}}" data-val="{{$vo['sort']}}">
+                <input type="number" name="sort" data-url="{{ route('sort-permission',['id'=>$vo['id']]) }}" class="layui-input layui-input-xs input-sort" value="{{$vo['sort']}}" data-val="{{$vo['sort']}}">
             </td>
             </td>
             <td>

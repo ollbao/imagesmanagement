@@ -103,7 +103,7 @@
                     <div class="layui-card-header">
                         <i class="{{ $__NAV__['self']['icon'] }} fa-fw"></i> {{ $__NAV__['self']['title'] }}
                         <!-- 放置操作按钮 -->
-                        <div class="pull-right">
+                        <div class="layui-inline action-btn">
                             @yield('action-btn')
                         </div>
                     </div>

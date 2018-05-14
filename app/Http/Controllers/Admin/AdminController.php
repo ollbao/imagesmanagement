@@ -69,11 +69,11 @@ class AdminController extends Controller
             if ($validator->fails()) {
                 return Y::error($validator->errors());
             }
-            if ($id == 1) {
-                return Y::error('超级管理员无法修改');
-            }
 
             $admin = Admin::find($id);
+            if($admin->isSuper()){
+                return Y::error('超级管理员无法修改');
+            }
             if (empty($post['password'])) {
                 unset($post['password']);
             } else {

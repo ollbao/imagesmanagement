@@ -155,7 +155,7 @@ layui.define(['layer', 'form', 'laydate', 'element'], function(exports) {
             $.post(url, self.serialize(), function(res) {
                 if (res.code != 0) {
                     layer.msg(lea.msg(res.msg));
-                    self.closest('.data-list').getList();
+                    $('.data-list').getList();
                 } else {
                     layer.msg('设置成功');
                     self.attr('data-val', self.val());
@@ -201,7 +201,7 @@ layui.define(['layer', 'form', 'laydate', 'element'], function(exports) {
                         })
                         .done(function(res) {
                             if (res.code == 0) {
-                                self.closest('.data-list').getList();
+                                $('.data-list').getList();
                                 layer.msg(lea.msg(res.msg), { time: 1200 }, function() {
                                     layer.close(index);
                                 });
@@ -241,7 +241,7 @@ layui.define(['layer', 'form', 'laydate', 'element'], function(exports) {
             layer.confirm('您确定要 <span style="color:#f56954">' + title + '</span> 吗？', function(index) {
                 $.post(url, function(res) {
                     layer.msg(lea.msg(res.msg));
-                    self.closest('.data-list').getList();
+                    $('.data-list').getList();
                 });
             });
 
@@ -251,8 +251,8 @@ layui.define(['layer', 'form', 'laydate', 'element'], function(exports) {
                 if (res.code == 1 || message == 1) {
                     layer.msg(lea.msg(res.msg));
                 }
-                if (self.closest('.data-list').length) {
-                    self.closest('.data-list').getList();
+                if ($('.data-list').length) {
+                    $('.data-list').getList();
                 }
 
             });
@@ -303,12 +303,12 @@ layui.define(['layer', 'form', 'laydate', 'element'], function(exports) {
             .done(function(data) {
                 if (data.code != 0) {
                     layer.msg(data.msg);
-                    self.closest('.data-list').getList();
+                    $('.data-list').getList();
                 }
             })
             .fail(function(xhr) {
                 layer.msg('服务器异常，请稍后重试~');
-                self.closest('.data-list').getList();
+                $('.data-list').getList();
             });
     });
 

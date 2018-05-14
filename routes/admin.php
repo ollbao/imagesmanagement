@@ -36,8 +36,8 @@ Route::any('rbac/admin', 'AdminController@index')->name('admin-users');
 Route::any('rbac/admin/add', 'AdminController@add')->name('add-admin');
 Route::any('rbac/admin/edit/{id}', 'AdminController@edit')->name('edit-admin');
 Route::any('rbac/admin/assign/{id}', 'AdminController@assign')->name('assign-admin');
-Route::get('rbac/admin/delete/{id}', 'AdminController@delete')->name('delete-admin');
-Route::get('rbac/admin/status/{id}', 'AdminController@status')->name('status-admin');
+Route::post('rbac/admin/delete/{id}', 'AdminController@delete')->name('delete-admin');
+Route::post('rbac/admin/status/{id}', 'AdminController@status')->name('status-admin');
 
 /**
  * Rbac权限管理(角色管理)
@@ -46,7 +46,7 @@ Route::any('rbac/roles', 'RoleController@index')->name('roles');
 Route::any('rbac/role/add', 'RoleController@add')->name('add-role');
 Route::any('rbac/role/edit/{id}', 'RoleController@edit')->name('edit-role');
 Route::any('rbac/role/assign/{id}', 'RoleController@assign')->name('assign-permission');
-Route::get('rbac/role/delete/{id}', 'RoleController@delete')->name('delete-role');
+Route::post('rbac/role/delete/{id}', 'RoleController@delete')->name('delete-role');
 
 /**
  * Rbac权限管理(权限规则管理)

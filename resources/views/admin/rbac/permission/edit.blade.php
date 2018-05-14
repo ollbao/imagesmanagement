@@ -26,7 +26,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">图标</label>
             <div class="layui-input-inline">
-                <input type="text" name="icon" placeholder="fa fa-edit" value="{{ $info->icon }}" class="layui-input">
+                <input type="text" name="icon" placeholder="fas fa-info-circle" value="{{ $info->icon }}" class="layui-input">
             </div>
             <div class="layui-form-mid layui-word-aux">支持font-awesome字体</div>
         </div>

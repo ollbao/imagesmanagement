@@ -15,20 +15,13 @@ class UserController extends Controller
     {
         if ($request->isMethod('post')) {
             $keyword = trim($request->post('keyword', ''));
-            $status  = intval($request->post('status', -1));
             $limit   = intval($request->post('limit', 10));
-            $record  = DB::table('users')->whereIn('status', [0, 1])
+            $record  = DB::table('users')
                 ->when($keyword, function ($query) use ($keyword) {
-                    return $query->where('nickname', 'like', '%' . $keyword . '%');
-                })
-                ->when(in_array($status, [0, 1]), function ($query) use ($status) {
-                    return $query->where('status', $status);
-                })
-                ->paginate($limit);
+                    return $query->where('name', 'like', '%' . $keyword . '%');
+                })->paginate($limit);
             return view('admin.user.index_list', compact('record'));
         } else {
-            $test = 'aaaaa';
-            $test2 = 'bbbb';
             return view('admin.user.index');
         }
     }

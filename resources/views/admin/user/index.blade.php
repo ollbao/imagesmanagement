@@ -1,10 +1,10 @@
 @extends('admin.layout') 
+@section('action-btn')
+<button class="layui-btn layui-btn-normal layui-btn-sm ajax-form" data-url=""><i class="layui-icon">&#xe61f;</i> 新增</button>
+@endsection
 @section('content')
 <div class="data-list">
     <form class="layui-form inline-form">
-        <div class="layui-inline">
-            <button class="layui-btn layui-btn-normal layui-btn-sm ajax-form" data-url=""><i class="layui-icon">&#xe61f;</i> 新增</button>
-        </div>
         <div class="layui-inline">
             <input class="layui-input" name="keyword" placeholder="输入关键词搜索">
         </div>

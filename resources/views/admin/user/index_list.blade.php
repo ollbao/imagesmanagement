@@ -3,8 +3,8 @@
         <tr>
             <th lay-data="{type:'checkbox'}"></th>
             <th lay-data="{field:'id',title:'ID'}"></th>
-            <th lay-data="{field:'nickname',title:'昵称'}"></th>
-            <th lay-data="{field:'mobile',title:'手机号'}"></th>
+            <th lay-data="{field:'name',title:'昵称'}"></th>
+            <th lay-data="{field:'email',title:'邮箱'}"></th>
             <th lay-data="{field:'action',title:'操作'}"></th>
         </tr>
     </thead>
@@ -13,8 +13,8 @@
         <tr>
             <td></td>
             <td>{{ $vo->id }}</td>
-            <td>{{ $vo->nickname }}</td>
-            <td>{{ $vo->mobile }}</td>
+            <td>{{ $vo->name }}</td>
+            <td>{{ $vo->email }}</td>
             <td>
                 <a href="" class="layui-btn layui-btn-xs layui-btn-normal  ajax-form" title="修改规则">修改</a>
             </td>
@@ -33,7 +33,7 @@ layui.use(['table', 'laypage'], function(){
         //size : 'sm',
         limit : {{ $record->perPage() }},
         initSort: {
-            field: 'nickname' //排序字段，对应 cols 设定的各字段名
+            field: 'name' //排序字段，对应 cols 设定的各字段名
             ,type: 'desc' //排序方式  asc: 升序、desc: 降序、null: 默认排序
         }
         

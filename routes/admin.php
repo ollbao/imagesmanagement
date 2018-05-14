@@ -54,9 +54,9 @@ Route::get('rbac/role/delete/{id}', 'RoleController@delete')->name('delete-role'
 Route::any('rbac/permission', 'PermissionController@index')->name('permission');
 Route::any('rbac/permission/add', 'PermissionController@add')->name('add-permission');
 Route::any('rbac/permission/edit/{id}', 'PermissionController@edit')->name('edit-permission');
-Route::get('rbac/permission/menu/{id}', 'PermissionController@menu')->name('menu-permission');
-Route::get('rbac/permission/sort/{id}', 'PermissionController@sort')->name('sort-permission');
-Route::get('rbac/permission/delete/{id}', 'PermissionController@delete')->name('delete-permission');
+Route::post('rbac/permission/menu/{id}', 'PermissionController@menu')->name('menu-permission');
+Route::post('rbac/permission/sort/{id}', 'PermissionController@sort')->name('sort-permission');
+Route::post('rbac/permission/delete/{id}', 'PermissionController@delete')->name('delete-permission');
 
 /**
  * 用户管理

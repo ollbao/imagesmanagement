@@ -31,14 +31,14 @@ table .html {
                 <div class="text-left"> {{ $vo['name'] }}</div>
             </td>
             <td><i class="{{ $vo['icon'] }}"></i></td>
-            <td><a href="{{ route('menu-permission',['is_menu'=>abs(1-$vo['is_menu']),'id'=>$vo['id']]) }}" class="ajax-get" msg="0">@if($vo['is_menu'])<span class="text-red">是</span>@else<span>否</span>@endif</a></td>
+            <td><a href="{{ route('menu-permission',['is_menu'=>abs(1-$vo['is_menu']),'id'=>$vo['id']]) }}" class="ajax-post" title="更改" confirm="1" >@if($vo['is_menu'])<span class="text-red">是</span>@else<span>否</span>@endif</a></td>
             <td>
                 <input type="number" name="sort" data-url="{{ route('sort-permission',['id'=>$vo['id']]) }}" class="layui-input layui-input-xs input-sort" value="{{$vo['sort']}}" data-val="{{$vo['sort']}}">
             </td>
             </td>
             <td>
                 <a href="{{ route('edit-permission',['id'=>$vo['id']]) }}" class="layui-btn layui-btn-xs layui-btn-normal  ajax-form" title="修改规则">修改</a>
-                <a href="{{ route('delete-permission',['id'=>$vo['id']]) }}" title="删除" confirm="1" class="layui-btn layui-btn-xs layui-btn-danger  ajax-get">删除</a>
+                <a href="{{ route('delete-permission',['id'=>$vo['id']]) }}" title="删除" confirm="1" class="layui-btn layui-btn-xs layui-btn-danger  ajax-post">删除</a>
             </td>
         </tr>
     @endforeach

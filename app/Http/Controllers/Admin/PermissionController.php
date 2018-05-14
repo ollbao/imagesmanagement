@@ -60,7 +60,7 @@ class PermissionController extends Controller
         if ($request->isMethod('post')) {
             $post      = $request->post();
             $validator = Validator::make($post, [
-                'id'    => 'required',
+                //'id'    => 'required',
                 'title' => 'required|max:64',
                 'name'  => 'required|max:64'
             ]);

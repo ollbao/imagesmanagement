@@ -157,6 +157,7 @@ layui.define(['layer', 'form', 'laydate', 'element'], function(exports) {
                     layer.msg(lea.msg(res.msg));
                     self.closest('.data-list').getList();
                 } else {
+                    layer.msg('设置成功');
                     self.attr('data-val', self.val());
                 }
             });

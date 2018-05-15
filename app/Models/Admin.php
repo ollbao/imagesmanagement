@@ -95,4 +95,9 @@ class Admin extends Authenticatable
     public function isSuper(){
         return $this->is_super ? true : false;
     }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }

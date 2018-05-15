@@ -565,3 +565,32 @@ body {
 .action-btn{
     float: right;
 }
+
+.flow-default {
+    
+    overflow: auto;
+    font-size: 0;
+}
+.flow-default li {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 14px;
+    width: 128px;
+    margin-bottom: 10px;
+    
+    line-height: 100px;
+    text-align: center;
+    background-color: #eee;
+}
+.flow-default img {
+    width: 128px;
+    height: auto;
+}
+.search-input{
+    height: 48px;
+    width: 200px;
+}
+.search-btn{
+    height: 43px;
+    width: 69px;
+}

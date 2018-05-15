@@ -64,3 +64,10 @@ Route::post('rbac/permission/delete/{id}', 'PermissionController@delete')->name(
 Route::get('users/manage', 'UserController@index')->name('users.manage');
 Route::any('users', 'UserController@index')->name('users');
 
+/**
+ * 图片管理
+ */
+Route::get('images/manage', 'ImagesController@index')->name('images');
+Route::any('images', 'ImagesController@index')->name('images-index');
+Route::any('images/add', 'ImagesController@add')->name('images-add');
+Route::get('images/list', 'ImagesController@list')->name('images-list');

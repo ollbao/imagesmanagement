@@ -1,4 +1,5 @@
-@extends('admin.layout') @section('content')
+@extends('admin.layout') 
+@section('content')
 <div class="">
     <style type="text/css">
     .rules select {
@@ -15,7 +16,8 @@
     <hr>
     <a href="{{ route('roles') }}" class="layui-btn layui-btn-primary layui-btn-small"><i class="fa fa-history"></i> 返回</a>
 </div>
-@endsection @section('script')
+@endsection 
+@section('script')
 <script type="text/javascript">
 $(document).ready(function() {
     var url = "{{ url()->current() }}";

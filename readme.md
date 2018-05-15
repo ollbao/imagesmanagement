@@ -13,6 +13,8 @@ php artisan key:generate
 php artisan ide-helper:generate
 //生成数据迁移
 php artisan migrate:fresh --seed
+//生成文件存储软连接
+php artisan storage:link
 ```
 
 

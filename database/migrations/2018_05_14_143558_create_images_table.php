@@ -20,7 +20,7 @@ class CreateImagesTable extends Migration
             $table->string('down_path')->comment('图片下载路径');
             $table->string('image_source')->default('')->comment('图片来源');
             $table->string('source_link')->default('')->comment('图片原始链接');
-            $table->string('description')->default('')->comment('图片描述');
+            $table->string('description')->nullable()->comment('图片描述');
             $table->integer('admin_id')->unsigned()->comment('上传用户id');
             $table->timestamps();
         });

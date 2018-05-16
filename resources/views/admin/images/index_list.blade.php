@@ -13,8 +13,8 @@ table .html {
             <th>图片来源</th>
             <th>描述</th>
             <th>上传用户</th>
-            <th>创建时间</th>
-            <th>操作</th>
+            <th>上传时间</th>
+            {{-- <th>操作</th> --}}
         </tr>
     </thead>
     <tbody>
@@ -22,21 +22,21 @@ table .html {
             @foreach ($images as $vo)
             <tr>
                 <td>{{ $vo->id }}</td>
-                <td><img height="50px" src="{{ $vo->show_url }}"></td>
+                <td><a target="_blank" href="{{ $vo->show_url }}"><img height="50px" src="{{ $vo->show_url }}"></a></td>
                 <td>
                     <div class="text-left"> {{ $vo->tag }}</div>
                 </td>
                 <td>
                     <div class="text-left"> <a href="{{ $vo->source_link }}">{{ $vo->image_source }}</a></div>
                 </td>
-                <td><i class="{{ $vo->description }}"></i></td>
+                <td>{{ $vo->description }}</td>
                 <td>{{ $vo->admin->nickname }}</td>
                 <td>{{ $vo->created_at }}</td>
                 
-                <td>
-                    {{-- <a href="{{ route('edit-permission',['id'=>$vo['id']]) }}" class="layui-btn layui-btn-xs layui-btn-normal  ajax-form" title="修改规则">修改</a> --}}
+                {{-- <td>
+                    <a href="{{ route('edit-permission',['id'=>$vo['id']]) }}" class="layui-btn layui-btn-xs layui-btn-normal  ajax-form" title="修改规则">修改</a>
                     <a href="{{ route('delete-permission',['id'=>$vo['id']]) }}" title="删除" confirm="1" class="layui-btn layui-btn-xs layui-btn-danger  ajax-post">删除</a>
-                </td>
+                </td> --}}
             </tr>
             @endforeach
         @endif

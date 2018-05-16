@@ -18,7 +18,7 @@ class CreateDownloadHistoriesTable extends Migration
             $table->integer('image_id')->index()->comment('images表id');
             $table->string('scenes')->comment('使用场景');
             $table->string('url')->comment('线上地址');
-            $table->string('description')->default('')->comment('描述');
+            $table->string('description')->nullable()->comment('描述');
             $table->string('admin_name')->comment('下载用户');
             $table->timestamps();
         });

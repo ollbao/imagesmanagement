@@ -11,6 +11,7 @@ use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\DownloadHistories;
+use Intervention\Image\Facades\Image as ImagesHandle;
 
 class ImagesController extends Controller
 {
@@ -30,10 +31,14 @@ class ImagesController extends Controller
         if ($request->isMethod('post')) {
             $post  = $request->post();
             $messages = [
-                'required' => '请填写图片标签.',
+                'tag.required' => '请填写图片标签.',
+                'image_source.required' => '请填写图片来源',
+                'source_link.required' => '请填写来源链接.',
             ];
             $validator = Validator::make($post, [
-                'tag' => 'required'
+                'tag' => 'required',
+                'image_source' => 'required',
+                'source_link' => 'required|url',
             ], $messages);
             if ($validator->fails()) {
                 return Y::error($validator->errors());
@@ -41,7 +46,7 @@ class ImagesController extends Controller
             if(!$request->image){
                return Y::error('请上传图片');
             }
-            $imageInfo = FileUploadHandler::store($request->file('image'), null, true, true, 'images');
+            $imageInfo = FileUploadHandler::store($request->file('image'), 200, true, true, 'images');
             
             $image = new Image();
             $image->fill($request->all());
@@ -50,7 +55,7 @@ class ImagesController extends Controller
             $image->down_path = $imageInfo['storeOriginalPath'];
     
             $image->save();
-            return Y::success('上传成功');
+            return Y::success('上传成功',['show_url'=>$imageInfo['url']]);
         } else {
             return view('admin.images.add');
         }

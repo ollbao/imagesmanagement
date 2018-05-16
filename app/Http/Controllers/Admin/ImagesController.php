@@ -9,6 +9,8 @@ use App\Library\FileUploadHandler;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use App\Models\DownloadHistories;
 
 class ImagesController extends Controller
 {
@@ -56,12 +58,43 @@ class ImagesController extends Controller
 
     public function list(Request $request)
     {
-        $images = Image::orderBy('id','desc')->paginate(10);
-        //dd($images->url(1));exit;
+        
         if($request->ajax()){
+            if($request->tag){
+                $images = Image::search($request->tag)->paginate(10);
+            }else{
+                $images = Image::orderBy('id','desc')->paginate(10);
+            }
             return $images->toJson();
         }else{
-            return view('admin.images.list', compact('images'));
+            $pageUrl = $request->fullUrl().(Str::contains($request->fullUrl(), '?') ? '&' : '?').'page=1';
+            return view('admin.images.list', compact('pageUrl'));
+        }
+    }
+
+    public function down(Request $request, $id)
+    {
+        $image = Image::findOrFail($id);
+        if ($request->isMethod('post')) {
+            //$request->session()->flash('status', 'Task was successful!');
+            $downloadHistory = new DownloadHistories();
+            $downloadHistory->fill($request->all());
+            $downloadHistory->image_id = $id;
+            $downloadHistory->admin_name = Auth::user()->username;
+            $downloadHistory->save();
+            return response()->download($image->down_path);
+        } else {
+            return view('admin.images.down', compact('image'));
+        }
+    }
+
+    public function history(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $downloadHistories = DownloadHistories::with('image')->orderBy('id','desc')->paginate(20);
+            return view('admin.images.history_list', compact('downloadHistories'));
+        } else {
+            return view('admin.images.history');
         }
     }
 }

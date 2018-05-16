@@ -71,3 +71,5 @@ Route::get('images/manage', 'ImagesController@index')->name('images');
 Route::any('images', 'ImagesController@index')->name('images-index');
 Route::any('images/add', 'ImagesController@add')->name('images-add');
 Route::get('images/list', 'ImagesController@list')->name('images-list');
+Route::any('images/down/{id}', 'ImagesController@down')->name('images-down');
+Route::any('images/history', 'ImagesController@history')->name('images-history');

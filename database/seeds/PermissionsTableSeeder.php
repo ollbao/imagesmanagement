@@ -34,9 +34,11 @@ class PermissionsTableSeeder extends Seeder
             ['pid' => '7', 'name' => 'assign-permission', 'param' => null, 'title' => '分配权限', 'icon' => 'fas fa-info-circle', 'sort' => '0', 'is_menu' => '0', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
             ['pid' => '0', 'name' => 'users.manage', 'param' => null, 'title' => '用户管理', 'icon' => 'fas fa-users', 'sort' => '0', 'is_menu' => '1', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
             ['pid' => '20', 'name' => 'users', 'param' => null, 'title' => '用户列表', 'icon' => 'far fa-user', 'sort' => '0', 'is_menu' => '1', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
-            ['pid' => '0', 'name' => 'images', 'param' => null, 'title' => '图片管理', 'icon' => 'fas fa-info-circle', 'sort' => '0', 'is_menu' => '1', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
-            ['pid' => '22', 'name' => 'images-index', 'param' => null, 'title' => '图片列表', 'icon' => 'fas fa-info-circle', 'sort' => '0', 'is_menu' => '1', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
-            ['pid' => '22', 'name' => 'images-add', 'param' => null, 'title' => '图片上传', 'icon' => 'fas fa-info-circle', 'sort' => '0', 'is_menu' => '0', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
+            ['pid' => '0', 'name' => 'images', 'param' => null, 'title' => '图片管理', 'icon' => 'fas fa-image', 'sort' => '0', 'is_menu' => '1', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
+            ['pid' => '22', 'name' => 'images-index', 'param' => null, 'title' => '图片列表', 'icon' => 'far fa-images', 'sort' => '0', 'is_menu' => '1', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
+            ['pid' => '23', 'name' => 'images-add', 'param' => null, 'title' => '图片上传', 'icon' => 'fas fa-info-circle', 'sort' => '0', 'is_menu' => '0', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
+            ['pid' => '22', 'name' => 'images-list', 'param' => null, 'title' => '图片下载', 'icon' => 'fas fa-download', 'sort' => '0', 'is_menu' => '1', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
+            ['pid' => '22', 'name' => 'images-history', 'param' => null, 'title' => '下载记录', 'icon' => 'fas fa-history', 'sort' => '0', 'is_menu' => '1', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
             
             
         ];

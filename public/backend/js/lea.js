@@ -193,7 +193,9 @@ layui.define(['layer', 'form', 'laydate', 'element'], function(exports) {
                     }
                     $(layero).find('.layui-layer-btn0').attr('disabled', 'disabled');
                     var _form = $(layero).find('form');
-                    $.ajax({
+                    var is_ajax_submit = _form.attr('is_ajax_submit') || 1;//是否ajax提交,用于下载需求
+                    if(is_ajax_submit == 1){
+                        $.ajax({
                             url: _form.attr('action') || '',
                             type: 'POST',
                             dataType: 'json',
@@ -214,6 +216,13 @@ layui.define(['layer', 'form', 'laydate', 'element'], function(exports) {
                         .fail(function(jqXHR, textStatus, errorThrown) {
                             $(layero).find('.layui-layer-btn0').removeAttr('disabled')
                         });
+                    }else{
+                        _form.submit();
+                        layer.msg('开始下载', { time: 1200 }, function() {
+                            layer.close(index);
+                        });
+                    }
+                    
                 },
                 btn2: function(index) {
                     layer.close(index);

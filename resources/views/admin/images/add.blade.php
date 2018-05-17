@@ -45,10 +45,10 @@
             ,field: 'image'
             ,choose: function(obj){
                 var len = $('#demoList tr').length;
-                if(len == 1){
-                    layer.msg('最多同时只能上传1张图片', {icon: 5});
-                    return;
-                }
+                // if(len == 1){
+                //     layer.msg('最多同时只能上传1张图片', {icon: 5});
+                //     return;
+                // }
                 var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
                 //读取本地文件
                 obj.preview(function(index, file, result){

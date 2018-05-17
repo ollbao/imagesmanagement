@@ -28,7 +28,7 @@
                     <td>
                         <div class="text-left"> {{ $vo->url }}</div>
                     </td>
-                    <td><i class="{{ $vo->description }}"></i></td>
+                    <td>{{ $vo->description }}</td>
                     <td>{{ $vo->admin_name }}</td>
                     <td>{{ $vo->created_at }}</td>
                     

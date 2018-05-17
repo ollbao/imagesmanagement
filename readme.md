@@ -15,6 +15,7 @@ php artisan migrate:fresh --seed
 php artisan storage:link
 //生成类导航文件(用于编辑器代码跳转,可忽略)
 php artisan ide-helper:generate
+//后台访问地址(配置的域名/admin),登录账号:admin  密码:123456
 ```
 
 

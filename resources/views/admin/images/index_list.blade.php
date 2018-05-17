@@ -34,7 +34,7 @@ table .html {
                 <td>{{ $vo->created_at }}</td>
                 
                 <td>
-                    <a href="{{ route('images-edit',['id'=>$vo['id']]) }}" class="layui-btn layui-btn-xs layui-btn-normal  ajax-form" title="修改规则">修改</a>
+                    <a href="{{ route('images-edit',['id'=>$vo['id']]) }}" class="layui-btn layui-btn-xs layui-btn-normal  ajax-form" title="修改图片">修改</a>
                     <a href="{{ route('images-delete',['id'=>$vo['id']]) }}" title="删除" confirm="1" class="layui-btn layui-btn-xs layui-btn-danger  ajax-post">删除</a>
                 </td>
             </tr>

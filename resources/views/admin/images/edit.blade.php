@@ -1,6 +1,12 @@
 <div class="layui-card-body">
     <form class="layui-form" action="{{ url()->current() }}" style="width: 500px;" method="post">
         <div class="layui-form-item">
+            <label class="layui-form-label"></label>
+            <div class="layui-input-block">
+                <img height="50px" src="{{ $image->show_url }}" />
+            </div> 
+        </div>
+        <div class="layui-form-item">
             <label class="layui-form-label">图片来源</label>
             <div class="layui-input-block">
                 <input type="text" name="image_source" placeholder="图片来源" value="{{ $image->image_source }}" class="layui-input">

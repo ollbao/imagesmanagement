@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {echo 'aaa';exit;
+Route::get('/', function () {echo phpinfo();exit;
     return view('welcome');
 });

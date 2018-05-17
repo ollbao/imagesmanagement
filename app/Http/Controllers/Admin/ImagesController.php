@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\DownloadHistories;
 use Intervention\Image\Facades\Image as ImagesHandle;
+use Illuminate\Support\Facades\Storage;
 
 class ImagesController extends Controller
 {
@@ -52,13 +53,49 @@ class ImagesController extends Controller
             $image->fill($request->all());
             $image->admin_id = Auth::id();
             $image->show_url = $imageInfo['url'];
-            $image->down_path = $imageInfo['storeOriginalPath'];
+            $image->down_path = $imageInfo['store'];
     
             $image->save();
             return Y::success('上传成功',['show_url'=>$imageInfo['url']]);
         } else {
             return view('admin.images.add');
         }
+    }
+
+    //修改
+    public function edit(Request $request, $id)
+    {
+        $image = Image::findOrFail($id);
+        if ($request->isMethod('post')) {
+            $post      = $request->post();
+            $messages = [
+                'tag.required' => '请填写图片标签.',
+                'image_source.required' => '请填写图片来源',
+                'source_link.required' => '请填写来源链接.',
+            ];
+            $validator = Validator::make($post, [
+                'tag' => 'required',
+                'image_source' => 'required',
+                'source_link' => 'required|url',
+            ], $messages);
+            if ($validator->fails()) {
+                return Y::error($validator->errors());
+            }
+            $image->fill($request->all())->save();
+            return Y::success('更新成功');
+        } else {
+            return view('admin.images.edit', compact('image'));
+        }
+    }
+
+    //删除
+    public function delete($id)
+    {
+        $image = Image::findOrFail($id);
+        $image->delete();
+        //删除原图
+        Storage::delete($image->down_path);
+        return Y::success('删除成功');
     }
 
     public function list(Request $request)
@@ -87,7 +124,7 @@ class ImagesController extends Controller
             $downloadHistory->image_id = $id;
             $downloadHistory->admin_name = Auth::user()->username;
             $downloadHistory->save();
-            return response()->download($image->down_path);
+            return response()->download(storage_path('app/'.$image->down_path));
         } else {
             return view('admin.images.down', compact('image'));
         }

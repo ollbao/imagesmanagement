@@ -24,13 +24,10 @@ class FileUploadHandler
             $filePath = $file->store($folderName, 'public');
         } 
         if($original){
-            $originalPath = $file->store($folderName);
-            //原件路径(不可外部访问)
-            $storeOriginalPath = storage_path('app').'/'.$originalPath;
+            $file->store($folderName);
         }
 
-        //文件保存路径(外部可访问)
-        $storePath = storage_path('app/public').'/'.$filePath;
+        
         //文件url路径
         $urlPath = asset('storage/'.$filePath);
         
@@ -39,13 +36,14 @@ class FileUploadHandler
         $extension = strtolower($file->getClientOriginalExtension());
         // 如果限制了图片宽度，就进行裁剪
         if ($maxWith && $extension != 'gif') {
-            // 此类中封装的函数，用于裁剪图片
+            //文件保存路径(外部可访问)
+            $storePath = config('filesystems.disks.public.root').'/'.$filePath;
+            //此类中封装的函数，用于裁剪图片
             self::reduceSize($storePath, $maxWith);
         }
 
         return [
-            'store' => $storePath,
-            'storeOriginalPath' => $storeOriginalPath ?? null,
+            'store' => $filePath,
             'url' => $urlPath
         ];
         

@@ -14,7 +14,7 @@ table .html {
             <th>描述</th>
             <th>上传用户</th>
             <th>上传时间</th>
-            {{-- <th>操作</th> --}}
+            <th>操作</th>
         </tr>
     </thead>
     <tbody>
@@ -33,10 +33,10 @@ table .html {
                 <td>{{ $vo->admin->nickname }}</td>
                 <td>{{ $vo->created_at }}</td>
                 
-                {{-- <td>
-                    <a href="{{ route('edit-permission',['id'=>$vo['id']]) }}" class="layui-btn layui-btn-xs layui-btn-normal  ajax-form" title="修改规则">修改</a>
-                    <a href="{{ route('delete-permission',['id'=>$vo['id']]) }}" title="删除" confirm="1" class="layui-btn layui-btn-xs layui-btn-danger  ajax-post">删除</a>
-                </td> --}}
+                <td>
+                    <a href="{{ route('images-edit',['id'=>$vo['id']]) }}" class="layui-btn layui-btn-xs layui-btn-normal  ajax-form" title="修改规则">修改</a>
+                    <a href="{{ route('images-delete',['id'=>$vo['id']]) }}" title="删除" confirm="1" class="layui-btn layui-btn-xs layui-btn-danger  ajax-post">删除</a>
+                </td>
             </tr>
             @endforeach
         @endif

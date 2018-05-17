@@ -39,6 +39,8 @@ class PermissionsTableSeeder extends Seeder
             ['pid' => '23', 'name' => 'images-add', 'param' => null, 'title' => '图片上传', 'icon' => 'fas fa-info-circle', 'sort' => '0', 'is_menu' => '0', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
             ['pid' => '22', 'name' => 'images-list', 'param' => null, 'title' => '图片下载', 'icon' => 'fas fa-download', 'sort' => '0', 'is_menu' => '1', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
             ['pid' => '22', 'name' => 'images-history', 'param' => null, 'title' => '下载记录', 'icon' => 'fas fa-history', 'sort' => '0', 'is_menu' => '1', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
+            ['pid' => '23', 'name' => 'images-edit', 'param' => null, 'title' => '图片修改', 'icon' => 'fas fa-info-circle', 'sort' => '0', 'is_menu' => '0', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
+            ['pid' => '23', 'name' => 'images-delete', 'param' => null, 'title' => '图片删除', 'icon' => 'fas fa-info-circle', 'sort' => '0', 'is_menu' => '0', 'guard_name' => 'admin', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
             
             
         ];

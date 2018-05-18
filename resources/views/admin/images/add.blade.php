@@ -89,6 +89,7 @@
                 var ids=[];
                 var  that=this;
                 //that.data.des=[];
+                that.data = {};
                 [].forEach.call(tr_dom, function(el,index){
                     var id=$(el).attr("data-filename");
                     var image_source=$(el).find(".image_source").val();
@@ -117,10 +118,13 @@
                     return delete this.files[index]; //删除文件队列已经上传成功的文件
                 }
                 //layer.msg(lea.msg(res.msg));
-                var err_msg = lea.msg(res.msg)
+                var err_msg = lea.msg(res.msg);
                 this.error(index, upload, err_msg);
             }
             ,error: function(index, upload, msg){
+                if(msg == undefined){
+                    msg = '上传失败';
+                }
                 var tr = demoListView.find('tr#upload-'+ index)
                 ,tds = tr.children();
                 //tds.eq(4).html('<span style="color: #FF5722;">上传失败</span>');

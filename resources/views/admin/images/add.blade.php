@@ -7,7 +7,7 @@
         <div class="layui-upload-list">
             <table class="layui-table">
             <thead>
-                <tr><th>文件名</th>
+                <tr><th>图片</th>
                 <th>来源 / 链接</th>
                 <th>标签</th>
                 <th>描述</th>
@@ -39,7 +39,7 @@
             elem: '#testList'
             ,url: '{{ route('images-add') }}'
             ,accept: 'images'
-            ,multiple: false
+            ,multiple: true
             ,auto: false
             ,bindAction: '#testListAction'
             ,field: 'image'
@@ -52,17 +52,17 @@
                 var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
                 //读取本地文件
                 obj.preview(function(index, file, result){
-                    var tr = $(['<tr id="upload-'+ index +'">'
+                    var tr = $(['<tr id="upload-'+ index +'" data-filename="'+ file.name +'">'
                     ,'<td><img class="layui-upload-img" src="'+ result +'" ></td>'
                     ,'<td>'
-                    ,'<input type="text" id="image_source" placeholder="图片来源" value="" class="layui-input">'
+                    ,'<input type="text" placeholder="图片来源 (必填)" value="" class="layui-input image_source">'
                     ,'<fieldset class="layui-elem-field layui-field-title" style="margin-bottom:10px;"></fieldset>'
-                    ,'<input type="text" id="source_link" placeholder="来源链接 http://" value="" class="layui-input">'
+                    ,'<input type="text" name="source_link" placeholder="来源链接 (必填) http://" value="" class="layui-input source_link">'
                     ,'</td>'
-                    ,'<td><textarea placeholder="请输入标签内容,多个标签用逗号分隔" id="tag" class="layui-textarea"></textarea></td>'
-                    ,'<td><textarea placeholder="描述" id="description" class="layui-textarea"></textarea></td>'
-                    ,'<td>等待上传</td>'
-                    ,'<td>'
+                    ,'<td><textarea placeholder="请输入标签内容,多个标签用逗号分隔 (必填)" name="tag" class="layui-textarea tag"></textarea></td>'
+                    ,'<td style="width: 130px;"><textarea placeholder="描述 (选填)" name="description" class="layui-textarea description"></textarea></td>'
+                    ,'<td style="width: 120px;">等待上传</td>'
+                    ,'<td style="width: 100px;">'
                         ,'<button class="layui-btn layui-btn-sm demo-reload layui-hide">重传</button>'
                         ,'<button class="layui-btn layui-btn-sm layui-btn-danger demo-delete">删除</button>'
                     ,'</td>'
@@ -85,14 +85,24 @@
                 });
             }
             ,before: function(obj){
-                var tag_val = $("#tag").val();
-                var image_source = $("#image_source").val();
-                var source_link = $("#source_link").val();
-                var description = $("#description").val();
-                this.data.tag = tag_val;
-                this.data.image_source = image_source;
-                this.data.source_link = source_link;
-                this.data.description = description;
+                var tr_dom = document.querySelectorAll("#demoList tr");
+                var ids=[];
+                var  that=this;
+                //that.data.des=[];
+                [].forEach.call(tr_dom, function(el,index){
+                    var id=$(el).attr("data-filename");
+                    var image_source=$(el).find(".image_source").val();
+                    var source_link=$(el).find(".source_link").val();
+                    var tag=$(el).find(".tag").val();
+                    var description=$(el).find(".description").val();
+                    var value = {
+                        "image_source":image_source,
+                        "source_link":source_link,
+                        "tag":tag,
+                        "description":description
+                    };
+                    that.data[id]= JSON.stringify(value);
+                });
             }
             ,done: function(res, index, upload){
                 if(res.code == 0){ //上传成功
@@ -102,17 +112,19 @@
                     //tds.eq(4).html(''); //清空操作
                     $("#show-images").append('<li><a target="_blank" href="'+ res.data.show_url +'"><img src="'+ res.data.show_url +'"></a></li>');
                     layer.msg('上传成功', { time: 1000 }, function() {
-                        demoListView.children().remove();
+                        tr.remove();
                     });
                     return delete this.files[index]; //删除文件队列已经上传成功的文件
                 }
-                layer.msg(lea.msg(res.msg));
-                this.error(index, upload);
+                //layer.msg(lea.msg(res.msg));
+                var err_msg = lea.msg(res.msg)
+                this.error(index, upload, err_msg);
             }
-            ,error: function(index, upload){
+            ,error: function(index, upload, msg){
                 var tr = demoListView.find('tr#upload-'+ index)
                 ,tds = tr.children();
-                tds.eq(4).html('<span style="color: #FF5722;">上传失败</span>');
+                //tds.eq(4).html('<span style="color: #FF5722;">上传失败</span>');
+                tds.eq(4).html('<span style="color: #FF5722;">'+ msg +'</span>');
                 tds.eq(5).find('.demo-reload').removeClass('layui-hide'); //显示重传
             }
         });

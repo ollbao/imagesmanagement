@@ -29,14 +29,20 @@ class ImagesController extends Controller
 
     public function add(Request $request)
     {
-        if ($request->isMethod('post')) {
+        if ($request->isMethod('post')) {//dd($request->file('image')->getClientOriginalName());exit;
+            $uplodeFile = $request->file('image');
+            if(!$uplodeFile){
+                return Y::error('请上传图片');
+            }
             $post  = $request->post();
+            $fileName = str_replace(["."," ","["], "_", $uplodeFile->getClientOriginalName());//php会自动把文件名中的点空格转换成下划线
+            $data = json_decode($post[$fileName], true);
             $messages = [
-                'tag.required' => '请填写图片标签.',
-                'image_source.required' => '请填写图片来源',
-                'source_link.required' => '请填写来源链接.',
+                'image_source.required' => '来源必填.',
+                'source_link.required' => '来源链接必填.',
+                'tag.required' => '标签必填.',
             ];
-            $validator = Validator::make($post, [
+            $validator = Validator::make($data, [
                 'tag' => 'required',
                 'image_source' => 'required',
                 'source_link' => 'required|url',
@@ -44,13 +50,11 @@ class ImagesController extends Controller
             if ($validator->fails()) {
                 return Y::error($validator->errors());
             }
-            if(!$request->image){
-               return Y::error('请上传图片');
-            }
-            $imageInfo = FileUploadHandler::store($request->file('image'), 200, true, true, 'images');
+            
+            $imageInfo = FileUploadHandler::store($uplodeFile, 200, true, true, 'images');
             
             $image = new Image();
-            $image->fill($request->all());
+            $image->fill($data);
             $image->admin_id = Auth::id();
             $image->show_url = $imageInfo['url'];
             $image->down_path = $imageInfo['store'];

@@ -16,8 +16,8 @@ class CreateDownloadHistoriesTable extends Migration
         Schema::create('download_histories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('image_id')->index()->comment('images表id');
-            $table->string('scenes')->comment('使用场景');
-            $table->string('url')->comment('线上地址');
+            $table->string('scenes')->nullable()->comment('使用场景');
+            $table->string('url')->nullable()->comment('线上地址');
             $table->string('description')->nullable()->comment('描述');
             $table->string('admin_name')->comment('下载用户');
             $table->timestamps();

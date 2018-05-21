@@ -9,9 +9,6 @@ composer install
 cp .env.example .env
 //生成安全秘钥
 php artisan key:generate
-//生成数据库队列相关表
-php artisan queue:table
-php artisan queue:failed-table
 //生成数据迁移
 php artisan migrate:fresh --seed
 //生成文件存储软连接

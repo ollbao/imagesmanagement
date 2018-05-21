@@ -193,6 +193,7 @@ layui.define(['layer', 'form', 'laydate', 'element'], function(exports) {
                     }
                     $(layero).find('.layui-layer-btn0').attr('disabled', 'disabled');
                     var _form = $(layero).find('form');
+                    layer.msg('请求中...');
                     $.ajax({
                         url: _form.attr('action') || '',
                         type: 'POST',
@@ -240,6 +241,7 @@ layui.define(['layer', 'form', 'laydate', 'element'], function(exports) {
 
         if (self.attr('confirm')) {
             layer.confirm('您确定要 <span style="color:#f56954">' + title + '</span> 吗？', function(index) {
+                layer.msg('请求中...');
                 $.post(url, function(res) {
                     layer.msg(lea.msg(res.msg));
                     $('.data-list').getList();
@@ -247,6 +249,7 @@ layui.define(['layer', 'form', 'laydate', 'element'], function(exports) {
             });
 
         } else {
+            layer.msg('请求中...');
             $.post(url, function(res) {
                 var message = self.attr('msg') || 1;
                 if (res.code == 1 || message == 1) {

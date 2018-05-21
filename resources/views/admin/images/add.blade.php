@@ -83,6 +83,7 @@
                 });
             }
             ,before: function(obj){
+                layer.msg('正在上传');
                 var tr_dom = document.querySelectorAll("#demoList tr");
                 var ids=[];
                 var  that=this;

@@ -21,7 +21,7 @@
                 @foreach ($downloadHistories as $vo)
                 <tr>
                     <td>{{ $vo->id }}</td>
-                    <td><img height="50px" src="{{ $vo->image->show_url }}"></td>
+                    <td><img src="{{ $vo->image->show_url }}"></td>
                     <td>
                         <div class="text-left"> {{ $vo->scenes }}</div>
                     </td>

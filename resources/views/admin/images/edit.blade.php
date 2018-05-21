@@ -19,12 +19,6 @@
             </div>
         </div>
         <div class="layui-form-item layui-form-text">
-            <label class="layui-form-label">标签</label>
-            <div class="layui-input-block">
-                <textarea name="tag" class="layui-textarea" placeholder="请输入标签内容,多个标签用逗号分隔">{{ $image->tag }}</textarea>
-            </div>
-        </div>
-        <div class="layui-form-item layui-form-text">
             <label class="layui-form-label">描述</label>
             <div class="layui-input-block">
             <textarea name="description" class="layui-textarea" placeholder="描述">{{ $image->description }}</textarea>

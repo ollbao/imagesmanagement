@@ -9,7 +9,6 @@ table .html {
         <tr>
             <th style="width: 48px">#</th>
             <th>图片</th>
-            <th>标签</th>
             <th>图片来源</th>
             <th>描述</th>
             <th>上传用户</th>
@@ -23,9 +22,6 @@ table .html {
             <tr>
                 <td>{{ $vo->id }}</td>
                 <td><a target="_blank" href="{{ $vo->show_url }}"><img height="50px" src="{{ $vo->show_url }}"></a></td>
-                <td>
-                    <div class="text-left"> {{ $vo->tag }}</div>
-                </td>
                 <td>
                     <div class="text-left"> <a href="{{ $vo->source_link }}">{{ $vo->image_source }}</a></div>
                 </td>

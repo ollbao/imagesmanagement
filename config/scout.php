@@ -96,6 +96,11 @@ return [
             'max_expansions' => 50,
             'distance' => 2
         ],
+        'tokenizer' => [
+            'jieba' => [
+                'dict' => 'small',
+            ]
+        ],
         'asYouType' => false,
         'searchBoolean' => env('TNTSEARCH_BOOLEAN', false),
     ],

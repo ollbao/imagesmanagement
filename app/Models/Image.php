@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
+use App\Library\JiebaTokenizer;
 
 class Image extends Model
 {
     use Searchable;
 
     public $asYouType = true;
-    protected $fillable = ['tag', 'show_url', 'down_path', 'image_source', 'source_link', 'description'];
+    protected $fillable = ['show_url', 'down_path', 'image_source', 'source_link', 'description'];
 
     /**
      * Get the indexable data array for the model.
@@ -19,9 +20,11 @@ class Image extends Model
      */
     public function toSearchableArray()
     {
+        $jiebaTokenizer = new JiebaTokenizer();
+        $removeSymbol = ["，","。","、","（","）"];
         return [
             'id' => $this->id,
-            'tag' => $this->tag,
+            'description' => implode(',', $jiebaTokenizer->cut(str_replace($removeSymbol, ' ', $this->description))),
         ];
     }
 

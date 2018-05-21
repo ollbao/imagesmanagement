@@ -9,7 +9,6 @@
             <thead>
                 <tr><th>图片</th>
                 <th>来源 / 链接</th>
-                <th>标签</th>
                 <th>描述</th>
                 <th>状态</th>
                 <th>操作</th>
@@ -59,8 +58,7 @@
                     ,'<fieldset class="layui-elem-field layui-field-title" style="margin-bottom:10px;"></fieldset>'
                     ,'<input type="text" name="source_link" placeholder="来源链接 (必填) http://" value="" class="layui-input source_link">'
                     ,'</td>'
-                    ,'<td><textarea placeholder="请输入标签内容,多个标签用逗号分隔 (必填)" name="tag" class="layui-textarea tag"></textarea></td>'
-                    ,'<td style="width: 130px;"><textarea placeholder="描述 (选填)" name="description" class="layui-textarea description"></textarea></td>'
+                    ,'<td><textarea placeholder="描述 (必填)" name="description" class="layui-textarea description">'+ file.name.substring(0,file.name.lastIndexOf(".")) +'</textarea></td>'
                     ,'<td style="width: 120px;">等待上传</td>'
                     ,'<td style="width: 100px;">'
                         ,'<button class="layui-btn layui-btn-sm demo-reload layui-hide">重传</button>'
@@ -94,12 +92,10 @@
                     var id=$(el).attr("data-filename");
                     var image_source=$(el).find(".image_source").val();
                     var source_link=$(el).find(".source_link").val();
-                    var tag=$(el).find(".tag").val();
                     var description=$(el).find(".description").val();
                     var value = {
                         "image_source":image_source,
                         "source_link":source_link,
-                        "tag":tag,
                         "description":description
                     };
                     that.data[id]= JSON.stringify(value);
@@ -109,7 +105,7 @@
                 if(res.code == 0){ //上传成功
                     var tr = demoListView.find('tr#upload-'+ index)
                     ,tds = tr.children();
-                    tds.eq(4).html('<span style="color: #5FB878;">上传成功</span>');
+                    tds.eq(3).html('<span style="color: #5FB878;">上传成功</span>');
                     //tds.eq(4).html(''); //清空操作
                     $("#show-images").append('<li><a target="_blank" href="'+ res.data.show_url +'"><img src="'+ res.data.show_url +'"></a></li>');
                     layer.msg('上传成功', { time: 1000 }, function() {
@@ -128,8 +124,8 @@
                 var tr = demoListView.find('tr#upload-'+ index)
                 ,tds = tr.children();
                 //tds.eq(4).html('<span style="color: #FF5722;">上传失败</span>');
-                tds.eq(4).html('<span style="color: #FF5722;">'+ msg +'</span>');
-                tds.eq(5).find('.demo-reload').removeClass('layui-hide'); //显示重传
+                tds.eq(3).html('<span style="color: #FF5722;">'+ msg +'</span>');
+                tds.eq(4).find('.demo-reload').removeClass('layui-hide'); //显示重传
             }
         });
     });

@@ -13,6 +13,8 @@ use Illuminate\Support\Str;
 use App\Models\DownloadHistories;
 use Intervention\Image\Facades\Image as ImagesHandle;
 use Illuminate\Support\Facades\Storage;
+use App\Library\JiebaTokenizer;
+
 
 class ImagesController extends Controller
 {
@@ -40,10 +42,11 @@ class ImagesController extends Controller
             $messages = [
                 'image_source.required' => '来源必填.',
                 'source_link.required' => '来源链接必填.',
-                'tag.required' => '标签必填.',
+                'source_link.url' => '来源链接格式错误.',
+                'description.required' => '描述必填.',
             ];
             $validator = Validator::make($data, [
-                'tag' => 'required',
+                'description' => 'required',
                 'image_source' => 'required',
                 'source_link' => 'required|url',
             ], $messages);
@@ -73,12 +76,12 @@ class ImagesController extends Controller
         if ($request->isMethod('post')) {
             $post      = $request->post();
             $messages = [
-                'tag.required' => '请填写图片标签.',
+                'description.required' => '请填写图片描述.',
                 'image_source.required' => '请填写图片来源',
                 'source_link.required' => '请填写来源链接.',
             ];
             $validator = Validator::make($post, [
-                'tag' => 'required',
+                'description' => 'required',
                 'image_source' => 'required',
                 'source_link' => 'required|url',
             ], $messages);
@@ -107,6 +110,10 @@ class ImagesController extends Controller
         
         if($request->ajax()){
             if($request->tag){
+                // $jiebaTokenizer = new JiebaTokenizer();
+                // $str = str_replace(["，","。","、","（","）"], ' ', $request->tag);
+                // //echo $str;exit;
+                // echo  dd($jiebaTokenizer->cut($str));
                 $images = Image::search($request->tag)->paginate(10);
             }else{
                 $images = Image::orderBy('id','desc')->paginate(10);

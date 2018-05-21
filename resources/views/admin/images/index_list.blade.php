@@ -4,7 +4,7 @@ table .html {
     padding-right: 4px;
 }
 </style>
-<table lay-filter="demo">
+<table class="layui-hide" lay-filter="demo">
     <thead>
         <tr>
             <th lay-data="{field:'id'}">#</th>

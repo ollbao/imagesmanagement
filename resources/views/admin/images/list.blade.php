@@ -22,7 +22,7 @@
                 <div class="cell"><a href="{{ route('images-down',['id'=>$item->id]) }}" class="ajax-form-down"><img src="{{ $item->show_url }}" /></a><p>{{ $item->description }}</p></div>
             @endforeach
         @else
-            
+            <p>没有更多数据了</p>
         @endif
     </div>
 @endsection
@@ -69,8 +69,8 @@
             getResource:function(index,render){//index为已加载次数,render为渲染接口函数,接受一个dom集合或jquery对象作为参数。通过ajax等异步方法得到的数据可以传入该接口进行渲染，如 render(elem)
                 var firstUrl = "{!! $pageUrl !!}";//第一页url
                 var currentUrl = firstUrl.replace(/page=1/, "page="+index);
+                layer.msg('正在加载..');
                 $.get(currentUrl, function(res){
-                    layer.msg('正在加载..');
                     if (index <= res.last_page) {
                         var html=htmlStr(res.data);
                         render($(html)) ;

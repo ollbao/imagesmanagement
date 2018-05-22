@@ -4,6 +4,7 @@ namespace App\Library;
 
 use Illuminate\Http\UploadedFile;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class FileUploadHandler
 {
@@ -29,7 +30,7 @@ class FileUploadHandler
 
         
         //文件url路径
-        $urlPath = asset('storage/'.$filePath);
+        $urlPath = Storage::url($filePath);
         
 
         //获取文件扩展名

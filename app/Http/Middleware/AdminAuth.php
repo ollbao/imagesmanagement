@@ -50,6 +50,7 @@ class AdminAuth
 
     protected $except = [
         'admin/login',
+        'admin/logout',
     ];
 
 }

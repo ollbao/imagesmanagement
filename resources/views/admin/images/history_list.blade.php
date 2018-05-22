@@ -8,7 +8,7 @@
         <thead>
             <tr>
                 <th lay-data="{field:'id'}">#</th>
-                <th lay-data="{field:'show_url'}">图片</th>
+                <th lay-data="{field:'show_url',width:100}">图片</th>
                 <th lay-data="{field:'scenes'}">使用场景</th>
                 <th lay-data="{field:'url'}">线上地址</th>
                 <th lay-data="{field:'description'}">描述</th>

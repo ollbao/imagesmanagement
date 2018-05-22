@@ -8,7 +8,7 @@ table .html {
     <thead>
         <tr>
             <th lay-data="{field:'id'}">#</th>
-            <th lay-data="{field:'show_url',align:'center'}">图片</th>
+            <th lay-data="{field:'show_url',align:'left',width:100}">图片</th>
             <th lay-data="{field:'image_source'}">图片来源</th>
             <th lay-data="{field:'description',width:300}">描述</th>
             <th lay-data="{field:'nickname'}">上传用户</th>

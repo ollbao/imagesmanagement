@@ -107,21 +107,20 @@ class ImagesController extends Controller
 
     public function list(Request $request)
     {
-        
+        if($request->tag){
+            // $jiebaTokenizer = new JiebaTokenizer();
+            // $str = str_replace(["，","。","、","（","）"], ' ', $request->tag);
+            // //echo $str;exit;
+            // echo  dd($jiebaTokenizer->cut($str));
+            $images = Image::search($request->tag)->paginate(1);
+        }else{
+            $images = Image::orderBy('id','desc')->paginate(10);
+        }
         if($request->ajax()){
-            if($request->tag){
-                // $jiebaTokenizer = new JiebaTokenizer();
-                // $str = str_replace(["，","。","、","（","）"], ' ', $request->tag);
-                // //echo $str;exit;
-                // echo  dd($jiebaTokenizer->cut($str));
-                $images = Image::search($request->tag)->paginate(10);
-            }else{
-                $images = Image::orderBy('id','desc')->paginate(10);
-            }
             return $images->toJson();
         }else{
             $pageUrl = $request->fullUrl().(Str::contains($request->fullUrl(), '?') ? '&' : '?').'page=1';
-            return view('admin.images.list', compact('pageUrl'));
+            return view('admin.images.list', compact('images','pageUrl'));
         }
     }
 

@@ -112,9 +112,9 @@ class ImagesController extends Controller
             // $str = str_replace(["，","。","、","（","）"], ' ', $request->tag);
             // //echo $str;exit;
             // echo  dd($jiebaTokenizer->cut($str));
-            $images = Image::search($request->tag)->paginate(1);
+            $images = Image::search($request->tag)->paginate(20);
         }else{
-            $images = Image::orderBy('id','desc')->paginate(10);
+            $images = Image::orderBy('id','desc')->paginate(20);
         }
         if($request->ajax()){
             return $images->toJson();

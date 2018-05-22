@@ -29,8 +29,8 @@
 @section('script')
 <script src="/backend/js/waterfall.js"></script>
 <script>
-    layui.use(['flow','lea', 'layer', 'form'], function(){
-        var flow = layui.flow,layer = layui.layer,form = layui.form;
+    layui.use(['lea', 'layer', 'form'], function(){
+        var layer = layui.layer,form = layui.form;
         
         // flow.load({
         //     elem: '#LAY_demo2' //流加载容器

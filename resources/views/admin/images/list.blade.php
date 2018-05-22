@@ -6,7 +6,7 @@
 <div class="layui-card-body">
     <form class="layui-form inline-form" method="GET">
         <div class="layui-inline">
-            <input class="layui-input search-input" name="tag" value="{{ Request::get('tag') }}" placeholder="输入标签搜索,多个标签用空格分隔">
+            <input class="layui-input search-input" name="tag" value="{{ Request::get('tag') }}" placeholder="输入搜索内容">
         </div>
         <div class="layui-inline">
             <button class="layui-btn search-btn layui-btn-normal"><i class="layui-icon">&#xe615;</i></button>

@@ -70,6 +70,7 @@
                 var firstUrl = "{!! $pageUrl !!}";//第一页url
                 var currentUrl = firstUrl.replace(/page=1/, "page="+index);
                 $.get(currentUrl, function(res){
+                    layer.msg('正在加载..');
                     if (index <= res.last_page) {
                         var html=htmlStr(res.data);
                         render($(html)) ;

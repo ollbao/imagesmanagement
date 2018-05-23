@@ -7,7 +7,7 @@ table .html {
 <table class="layui-hide" lay-filter="demo">
     <thead>
         <tr>
-            <th lay-data="{field:'id',width:50,fixed:true}">#</th>
+            <th lay-data="{field:'id',width:100,fixed:true}">#</th>
             <th lay-data="{field:'show_url',width:120,fixed:'left'}">图片</th>
             <th lay-data="{field:'image_source'}">图片来源</th>
             <th lay-data="{field:'description',minWidth:500}">描述</th>

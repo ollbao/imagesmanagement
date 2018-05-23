@@ -10,7 +10,7 @@ table .html {
             <th lay-data="{field:'id'}">#</th>
             <th lay-data="{field:'show_url',width:120}">图片</th>
             <th lay-data="{field:'image_source'}">图片来源</th>
-            <th lay-data="{field:'description',width:300}">描述</th>
+            <th lay-data="{field:'description',minWidth:300}">描述</th>
             <th lay-data="{field:'nickname'}">上传用户</th>
             <th lay-data="{field:'created_at'}">上传时间</th>
             <th lay-data="{field:'action'}">操作</th>

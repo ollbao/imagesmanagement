@@ -42,6 +42,7 @@
             ,auto: false
             ,bindAction: '#testListAction'
             ,field: 'image'
+            ,size:2048
             ,choose: function(obj){
                 var len = $('#demoList tr').length;
                 // if(len == 1){

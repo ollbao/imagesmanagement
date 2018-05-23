@@ -7,13 +7,13 @@ table .html {
 <table class="layui-hide" lay-filter="demo">
     <thead>
         <tr>
-            <th lay-data="{field:'id'}">#</th>
-            <th lay-data="{field:'show_url',width:120}">图片</th>
+            <th lay-data="{field:'id',width:50,fixed:true}">#</th>
+            <th lay-data="{field:'show_url',width:120,fixed:'left'}">图片</th>
             <th lay-data="{field:'image_source'}">图片来源</th>
-            <th lay-data="{field:'description',minWidth:300}">描述</th>
+            <th lay-data="{field:'description',minWidth:500}">描述</th>
             <th lay-data="{field:'nickname'}">上传用户</th>
             <th lay-data="{field:'created_at'}">上传时间</th>
-            <th lay-data="{field:'action'}">操作</th>
+            <th lay-data="{field:'action',width:120,fixed:'right'}">操作</th>
         </tr>
     </thead>
     <tbody>

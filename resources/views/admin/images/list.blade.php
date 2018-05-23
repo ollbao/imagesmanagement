@@ -64,22 +64,25 @@
             }
             return str;
         }
-
+        var loading_flag = true;
         var opt={
             getResource:function(index,render){//index为已加载次数,render为渲染接口函数,接受一个dom集合或jquery对象作为参数。通过ajax等异步方法得到的数据可以传入该接口进行渲染，如 render(elem)
                 var firstUrl = "{!! $pageUrl !!}";//第一页url
                 var currentUrl = firstUrl.replace(/page=1/, "page="+index);
-                layer.msg('正在加载..');
-                $.get(currentUrl, function(res){
-                    if (index <= res.last_page) {
-                        var html=htmlStr(res.data);
-                        render($(html)) ;
-                    }else{
-                        layer.msg('没有更多数据了');
-                        $.waterfall.load_index = index-1
-                        return;
-                    }
-                }, 'json');
+                if(loading_flag){
+                    layer.msg('正在加载..');
+                    $.get(currentUrl, function(res){
+                        if (index <= res.last_page) {
+                            var html=htmlStr(res.data);
+                            render($(html)) ;
+                        }else{
+                            layer.msg('没有更多数据了');
+                            //$.waterfall.load_index = index-1
+                            loading_flag = false;
+                            return;
+                        }
+                    }, 'json');
+                }
             },
             scroll_body:".main",
             auto_imgHeight:true,

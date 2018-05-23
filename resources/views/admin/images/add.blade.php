@@ -1,4 +1,7 @@
 @extends('admin.layout') 
+@section('style')
+<link href="/backend/css/zzsc.css" type="text/css" rel="stylesheet" />    
+@endsection
 @section('content')
 <div class="layui-card-body">
     <div class="layui-upload">
@@ -21,14 +24,13 @@
     <fieldset class="layui-elem-field">
         <legend>已上传的图片</legend>
         <div class="layui-field-box">
-            <ul class="flow-default" id="show-images">
-                
-            </ul>
+            <div id="waterfall" style="width:935px"></div>
         </div>
     </fieldset>
 </div>
 @endsection
 @section('script')
+<script src="/backend/js/waterfall.js"></script>
 <script>
     layui.use(['upload','lea'], function(){
         var $ = layui.jquery,upload = layui.upload,lea = layui.lea;
@@ -109,7 +111,8 @@
                     ,tds = tr.children();
                     tds.eq(3).html('<span style="color: #5FB878;">上传成功</span>');
                     //tds.eq(4).html(''); //清空操作
-                    $("#show-images").append('<li><a target="_blank" href="'+ res.data.show_url +'"><img src="'+ res.data.show_url +'"></a></li>');
+                    $("#waterfall").append('<div class="cell"><a href="javascript::void(0)" class="ajax-form-down"><img src="'+ res.data.show_url +'" /></a></div>');
+                    $('#waterfall').waterfall();
                     layer.msg('上传成功', { time: 1000 }, function() {
                         tr.remove();
                     });

@@ -22,7 +22,7 @@ class ImagesController extends Controller
     {
         if ($request->isMethod('post')) {
 
-            $images = Image::with('admin')->orderBy('id','desc')->paginate(20);
+            $images = Image::with('admin')->orderBy('id','desc')->paginate(intval($request->post('limit', 10)));
             return view('admin.images.index_list', compact('images'));
         } else {
             return view('admin.images.index');
@@ -143,7 +143,7 @@ class ImagesController extends Controller
     public function history(Request $request)
     {
         if ($request->isMethod('post')) {
-            $downloadHistories = DownloadHistories::with('image')->orderBy('id','desc')->paginate(20);
+            $downloadHistories = DownloadHistories::with('image')->orderBy('id','desc')->paginate(intval($request->post('limit', 10)));
             return view('admin.images.history_list', compact('downloadHistories'));
         } else {
             return view('admin.images.history');

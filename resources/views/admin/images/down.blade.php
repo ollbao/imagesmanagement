@@ -1,12 +1,5 @@
 <div class="layui-card-body">
-    <form class="layui-form" is_ajax_submit=0 action="{{ url()->current() }}" style="width: 500px;" method="post">
-        {{ csrf_field() }}
-        <div class="layui-form-item">
-            <label class="layui-form-label"></label>
-            <div class="layui-input-block">
-                <img height="50px" src="{{ $image->show_url }}" />
-            </div> 
-        </div>
+    <form class="layui-form" style="width: 500px;">
         <div class="layui-form-item">
             <label class="layui-form-label">使用场景</label>
             <div class="layui-input-block">

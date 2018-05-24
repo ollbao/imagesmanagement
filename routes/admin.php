@@ -73,5 +73,5 @@ Route::any('images/add', 'ImagesController@add')->name('images-add');
 Route::any('images/edit/{id}', 'ImagesController@edit')->name('images-edit');
 Route::any('images/delete/{id}', 'ImagesController@delete')->name('images-delete');
 Route::get('images/list', 'ImagesController@list')->name('images-list');
-Route::any('images/down/{id}', 'ImagesController@down')->name('images-down');
+Route::any('images/down', 'ImagesController@down')->name('images-down');
 Route::any('images/history', 'ImagesController@history')->name('images-history');

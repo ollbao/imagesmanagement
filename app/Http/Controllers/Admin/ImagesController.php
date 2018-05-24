@@ -124,10 +124,11 @@ class ImagesController extends Controller
         }
     }
 
-    public function down(Request $request, $id)
+    public function down(Request $request)
     {
-        $image = Image::findOrFail($id);
-        if ($request->isMethod('post')) {
+        if ($request->post('id')) {
+            $id = $request->post('id');
+            $image = Image::findOrFail($id);
             //$request->session()->flash('status', 'Task was successful!');
             $downloadHistory = new DownloadHistories();
             $downloadHistory->fill($request->all());
@@ -136,7 +137,7 @@ class ImagesController extends Controller
             $downloadHistory->save();
             return response()->download(storage_path('app/'.$image->down_path));
         } else {
-            return view('admin.images.down', compact('image'));
+            return view('admin.images.down');
         }
     }
 

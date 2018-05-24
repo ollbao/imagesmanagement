@@ -6,9 +6,14 @@ a{ color:#666; text-decoration:none;}
 a:hover{ text-decoration:none; color:#000;}
 img{border:0 none;}
 
-#waterfall{ text-align:center; width:1000px; margin:0 auto;}
-#waterfall img{ width:203px;}
-#waterfall .cell{ padding:10px 0px 5px 0px; width:223px;border:1px solid #E3E3E3; background:#fff; margin-top:20px;box-shadow: 0px 2px 3px 1px #ccc;}
-#waterfall .cell:hover{box-shadow: 0px 2px 3px 1px #999;}
-#waterfall .cell p{ margin: 10px;}
+.waterfall{ text-align:center; width:1000px; margin:0 auto;}
+.waterfall img{ width:203px;}
+.waterfall .cell{ padding:10px 0px 5px 0px; width:223px;border:1px solid #E3E3E3; background:#fff; margin-top:20px;box-shadow: 0px 2px 3px 1px #ccc;}
+.waterfall .cell:hover{box-shadow: 0px 2px 3px 1px #999;}
+.waterfall .cell p{ margin: 10px;}
+
+.waterfall .cell.cell-on{box-shadow:0 0 20px rgba(68, 145, 218, 0.8);position:relative;}
+.duigou{width:100px;height:100px;background:#6cc108;border-radius:100px;position:absolute;top:20px;right:20px;z-index:2;overflow:hidden;transform:scale(0.3);transform-origin:top right;display:none;}
+.duigou:before{content:"";width:0;height:0;border-right:solid 30px #fff;border-top:solid 4px transparent;border-bottom:solid 4px transparent;border-left:none;transform:rotate(42deg);position:absolute;top:54px;left:13px;}
+.duigou:after{content:"";width:0;height:0;border-right:solid 60px #fff;border-top:solid 4px transparent;border-bottom:solid 4px transparent;border-left:none;transform:rotate(142deg);position:absolute;top:46px;left:28px;}
 

@@ -41,12 +41,12 @@
             @endrole
         </ul>
         <ul class="layui-nav  layui-layout-right">
-            <li class="layui-nav-item" lay-unselect="">
+            {{-- <li class="layui-nav-item" lay-unselect="">
                 <a lay-href="app/message/" layadmin-event="message">
                     <i class="layui-icon layui-icon-notice"></i>
                     <span class="layui-badge-dot"></span>
                 </a>
-            </li>
+            </li> --}}
             <li class="layui-nav-item" lay-unselect>
                 <a href="javascript:;" class="user"><img src="{{ asset(Auth::user()->face) }}" class="layui-nav-img">{{ Auth::user()->nickname }} <i class="layui-icon layui-icon-more-vertical"></i></a>
                 <dl class="layui-nav-child">

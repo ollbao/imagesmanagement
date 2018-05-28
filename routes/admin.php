@@ -67,7 +67,7 @@ Route::any('users', 'UserController@index')->name('users');
 /**
  * 图片管理
  */
-Route::get('images/manage', 'ImagesController@index')->name('images');
+Route::any('images/manage', 'ImagesController@index')->name('images');
 Route::any('images', 'ImagesController@index')->name('images-index');
 Route::any('images/add', 'ImagesController@add')->name('images-add');
 Route::any('images/edit/{id}', 'ImagesController@edit')->name('images-edit');

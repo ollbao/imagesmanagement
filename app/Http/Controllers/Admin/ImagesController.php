@@ -23,6 +23,7 @@ class ImagesController extends Controller
         if ($request->isMethod('post')) {
 
             $images = Image::with('admin')->orderBy('id','desc')->paginate(intval($request->post('limit', 10)));
+            
             return view('admin.images.index_list', compact('images'));
         } else {
             return view('admin.images.index');

@@ -32,7 +32,7 @@ class ImagesController extends Controller
     }
 
     /**
-     * 提交1提交2
+     * 提交1提交2提交3
      *
      * @param Request $request
      * @return void

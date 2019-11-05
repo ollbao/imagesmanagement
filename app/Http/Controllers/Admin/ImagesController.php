@@ -27,6 +27,7 @@ class ImagesController extends Controller
         } else {
             return view('admin.images.index');
         }
+        
     }
 
     public function add(Request $request)

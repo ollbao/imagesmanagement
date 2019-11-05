@@ -31,6 +31,12 @@ class ImagesController extends Controller
 
     }
 
+    /**
+     * 提交1
+     *
+     * @param Request $request
+     * @return void
+     */
     public function add(Request $request)
     {
         if ($request->isMethod('post')) {//dd($request->file('image')->getClientOriginalName());exit;

@@ -28,11 +28,13 @@ class ImagesController extends Controller
         } else {
             return view('admin.images.index');
         }
+
     }
 
     public function add(Request $request)
     {
         if ($request->isMethod('post')) {//dd($request->file('image')->getClientOriginalName());exit;
+            
             $uplodeFile = $request->file('image');
             if(!$uplodeFile){
                 return Y::error('请上传图片');

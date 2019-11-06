@@ -35,7 +35,7 @@ class ImagesController extends Controller
      * 功能2的开发步骤1
      * 功能2的开发步骤2
      * 2.1版本测试bug1
-     * 测试bug2
+     * 2.1测试bug2
      *
      * @param Request $request
      * @return void

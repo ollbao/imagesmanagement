@@ -32,8 +32,8 @@ class ImagesController extends Controller
     }
 
     /**
-     * 功能1的开发步骤1
-     * 功能1的开发步骤2
+     * 功能2的开发步骤1
+     * 功能2的开发步骤2
      * 测试bug1
      * 测试bug2
      *
